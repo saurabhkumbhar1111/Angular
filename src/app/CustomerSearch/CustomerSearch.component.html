@@ -1,0 +1,15 @@
+Enter Customer Name: <input type="text" [(ngModel)]="customerName" id=""><br/>
+<br/>
+<input type="button" (click)="search()" value="Search">
+<br/>
+<br/>
+<table>
+    <tr>
+        <td>Name</td>
+        <td>Address</td>
+    </tr>
+    <tr *ngFor = "let cust of CustomerModels">
+        <td>{{cust.name}}</td>
+        <td>{{cust.address}}</td>
+    </tr>
+</table>

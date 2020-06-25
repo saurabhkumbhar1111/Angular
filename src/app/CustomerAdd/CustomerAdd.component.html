@@ -1,0 +1,21 @@
+<form [formGroup]="customerObj.formCustomerGroup">
+    Customer Name : <input formControlName="namecontrol" type="text" [(ngModel)]="customerObj.name" value="" /><br />
+    <div [hidden]="!(customerObj.formCustomerGroup.controls['namecontrol'].hasError('required'))"
+    style="color:red;">*Name is required</div><br/>
+    Customer Address : <input formControlName="addresscontrol" type="text" [(ngModel)]="customerObj.address" value="" /><br />
+    <div [hidden]="!(customerObj.formCustomerGroup.controls['addresscontrol'].hasError('required'))"
+    style="color: red;">*Address is required</div><br/>
+    <input type="button" [disabled]="!(customerObj.formCustomerGroup.valid)" (click)="Submit()" value="Add Customer" />
+</form>
+
+<br/>
+<table>
+    <tr>
+        <td>Name</td>
+        <td>Address</td>
+    </tr>
+    <tr *ngFor = "let cust of customerObjs">
+        <td>{{cust.name}}</td>
+        <td>{{cust.address}}</td>
+    </tr>
+</table>
