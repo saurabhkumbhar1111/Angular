@@ -3,13 +3,13 @@ import { CustomerAddModel } from "./CustomerAdd.model"
 import { HttpClient} from "@angular/common/http"
 
 @Component({
-  selector: 'customer',
+  selector: 'customer-add',
   templateUrl: './CustomerAdd.component.html'
 })
 
 export class CustomerAddComponent {
-  customerObj:CustomerAddModel = null;
-  customerObjs:Array<CustomerAddModel> = new Array<CustomerAddModel>();
+  customerObj:CustomerAddModel = null;  //single record obj
+  customerObjs:Array<CustomerAddModel> = new Array<CustomerAddModel>(); //collection obj
   
   constructor(public httpobj:HttpClient){
     this.customerObj = new CustomerAddModel();  //single record
