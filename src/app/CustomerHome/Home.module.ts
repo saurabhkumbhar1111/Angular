@@ -7,12 +7,15 @@ import { HomeRoutes } from './HomeRouting';
 import { MasterPageComponent } from './MasterPage.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CustomerLoginComponent } from '../CustomerLogin/CustomerLogin.component';
+import { User } from '../CustomerLogin/CustomerLogin.model';
+import { SecurityLogic } from '../Utilities/Utility.AuthGuard';
 
 
 
 @NgModule({
   declarations: [
     HomeComponent,
+    CustomerLoginComponent,
     MasterPageComponent
   ],
   imports: [
@@ -22,7 +25,7 @@ import { CustomerLoginComponent } from '../CustomerLogin/CustomerLogin.component
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [User, SecurityLogic],
   bootstrap: [MasterPageComponent]
 })
 export class HomeModule { }
