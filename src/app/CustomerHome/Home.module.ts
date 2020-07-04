@@ -5,10 +5,11 @@ import { HomeComponent } from './Home.component';
 import { RouterModule } from '@angular/router';
 import { HomeRoutes } from './HomeRouting';
 import { MasterPageComponent } from './MasterPage.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CustomerLoginComponent } from '../CustomerLogin/CustomerLogin.component';
 import { User } from '../CustomerLogin/CustomerLogin.model';
 import { SecurityLogic } from '../Utilities/Utility.AuthGuard';
+import { JwtInterceptor } from '../Utilities/Utility.Interceptor';
 
 
 
@@ -25,7 +26,8 @@ import { SecurityLogic } from '../Utilities/Utility.AuthGuard';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [User, SecurityLogic],
+  providers: [User, SecurityLogic,
+  { provide:HTTP_INTERCEPTORS, useClass:JwtInterceptor, multi:true}],
   bootstrap: [MasterPageComponent]
 })
 export class HomeModule { }

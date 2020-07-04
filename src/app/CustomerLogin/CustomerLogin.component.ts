@@ -28,6 +28,6 @@ export class CustomerLoginComponent {
     //this.userObj = new User();  //clear UI fields
   }
   Error(res){
-    alert("Not a valid user");
+    alert("Not a valid user.\nPlease enter valid Username and Password");
   }
 }

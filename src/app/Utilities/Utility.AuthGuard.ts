@@ -10,7 +10,7 @@ export class SecurityLogic implements CanActivate {
     constructor(private _router:Router, public _user:User ) {
     }
      
-    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
      if(this._user.token.length != 0){
         return true; //navigation allowed
      }

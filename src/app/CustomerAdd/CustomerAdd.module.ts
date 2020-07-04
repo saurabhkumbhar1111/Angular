@@ -2,10 +2,11 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CustomerAddComponent } from './CustomerAdd.component';
 import { CustomerAddRoutes } from './CustomerAddRouting';
 import { CommonModule } from '@angular/common';
+import { JwtInterceptor } from '../Utilities/Utility.Interceptor';
 
 
 
@@ -21,7 +22,7 @@ import { CommonModule } from '@angular/common';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ { provide:HTTP_INTERCEPTORS, useClass:JwtInterceptor, multi:true}],
   bootstrap: [CustomerAddComponent]
 })
 export class HomeModule { }
