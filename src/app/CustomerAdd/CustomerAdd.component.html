@@ -2,12 +2,26 @@
     Customer Name : <input formControlName="namecontrol" type="text" [(ngModel)]="customerObj.name" value="" /><br />
     <div [hidden]="!(customerObj.formCustomerGroup.controls['namecontrol'].hasError('required'))"
     style="color:red;">*Name is required</div><br/>
-    Customer Address : <input formControlName="addresscontrol" type="text" [(ngModel)]="customerObj.address" value="" /><br />
+
+    Customer Address : <input formControlName="addresscontrol" type="text" [(ngModel)]="customerAddress.address" value="" />
+    <input type="button" (click)="AddAddress()" value="Add Address"/><br/>
     <div [hidden]="!(customerObj.formCustomerGroup.controls['addresscontrol'].hasError('required'))"
-    style="color: red;">*Address is required</div><br/>
-    <input type="button" [disabled]="!(customerObj.formCustomerGroup.valid)" (click)="Submit()" value="Add Customer" />
+    style="color: red;">*Address is required</div>
+    <br />
+    
+    <input type="button" (click)="Submit()" value="Add Customer" />
 </form>
 
+<br/>
+<br/>
+<table>
+    <tr>
+        <td>Addresses</td>
+    </tr>
+    <tr *ngFor = "let address of customerObj.customerAddresses">
+        <td>{{address.address}}</td>
+    </tr>
+</table>
 <br/>
 <table>
     <tr>
@@ -16,6 +30,6 @@
     </tr>
     <tr *ngFor = "let cust of customerObjs">
         <td>{{cust.name}}</td>
-        <td>{{cust.address}}</td>
+        <td>{{cust.addresses}}</td>
     </tr>
 </table>

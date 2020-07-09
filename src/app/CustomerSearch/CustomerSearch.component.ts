@@ -28,6 +28,6 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
       this.CustomerModels = res;
     }
     error(res){
-
+      alert("Customer not found");
     }
   }

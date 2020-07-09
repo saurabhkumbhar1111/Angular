@@ -7,7 +7,8 @@ FormBuilder} from '@angular/forms'
 export class CustomerAddModel
 {
     name:string = "";
-    address:string = "";
+    customerAddresses:Array<CustomerAddress> = new Array<CustomerAddress>();
+    
     // Validation -->
     formCustomerGroup:FormGroup = null;
     constructor(){
@@ -23,4 +24,10 @@ export class CustomerAddModel
         new FormControl('', Validators.required));
 
     }
+     
+}
+export class CustomerAddress
+{
+    address:string = "";
+
 }
