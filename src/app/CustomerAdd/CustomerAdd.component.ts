@@ -1,17 +1,23 @@
 import { Component } from '@angular/core';
 import { CustomerAddModel, CustomerAddress} from "./CustomerAdd.model"
 import { HttpClient} from "@angular/common/http"
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'customer-add',
+  styleUrls: ['./CustomerAdd.component.css'],
   templateUrl: './CustomerAdd.component.html'
 })
 
 export class CustomerAddComponent {
   customerObj:CustomerAddModel = null;  //single record obj
   customerObjs:Array<CustomerAddModel> = new Array<CustomerAddModel>(); //collection obj
-  
+
   customerAddress:CustomerAddress = new CustomerAddress();
+  
+  displayedColumns:string[] = ['address'];
+  dataSource: MatTableDataSource<CustomerAddress>;
+  //dataSource = new MatTableDataSource(this.customerObj.customerAddresses);
 
   constructor(public httpobj:HttpClient){
     this.customerObj = new CustomerAddModel();  //single record
@@ -19,6 +25,7 @@ export class CustomerAddComponent {
 
   AddAddress(){
     this.customerObj.customerAddresses.push(this.customerAddress); //push single address to Addresses array
+    this.dataSource = new MatTableDataSource(this.customerObj.customerAddresses);
     this.customerAddress = new CustomerAddress();  //clear UI field
   }
   Submit(){

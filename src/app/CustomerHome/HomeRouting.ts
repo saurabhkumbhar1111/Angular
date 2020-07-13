@@ -11,7 +11,7 @@ export const HomeRoutes = [
     { path:'Home' , component:HomeComponent , canActivate: [SecurityLogic]},
     { path:'CustomerLogin' , component:CustomerLoginComponent},
     { path:'CustomerAdd' , loadChildren: () => import('../CustomerAdd/CustomerAdd.module')
-    .then(m => m.HomeModule) , canActivate: [SecurityLogic]},
+    .then(m => m.CustomerAddModule) , canActivate: [SecurityLogic]},
     { path:'CustomerSearch' , loadChildren: () => import('../CustomerSearch/CustomerSearch.module')
     .then(m => m.CustomerSearchModule) , canActivate: [SecurityLogic]}
     

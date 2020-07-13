@@ -10,7 +10,8 @@ import { CustomerLoginComponent } from '../CustomerLogin/CustomerLogin.component
 import { User } from '../CustomerLogin/CustomerLogin.model';
 import { SecurityLogic } from '../Utilities/Utility.AuthGuard';
 import { JwtInterceptor } from '../Utilities/Utility.Interceptor';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 
 @NgModule({
@@ -24,7 +25,9 @@ import { JwtInterceptor } from '../Utilities/Utility.Interceptor';
     RouterModule.forRoot(HomeRoutes),
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatToolbarModule
   ],
   providers: [User, SecurityLogic,
   { provide:HTTP_INTERCEPTORS, useClass:JwtInterceptor, multi:true}],

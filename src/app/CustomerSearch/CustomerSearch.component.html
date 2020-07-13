@@ -10,6 +10,8 @@ Enter Customer Name: <input type="text" [(ngModel)]="customerName" id=""><br/>
     </tr>
     <tr *ngFor = "let cust of CustomerModels">
         <td>{{cust.name}}</td>
-        <td>{{cust.address}}</td>
+        <td *ngFor = "let address of cust.addresses">
+            {{address.address}}
+        </td>
     </tr>
 </table>

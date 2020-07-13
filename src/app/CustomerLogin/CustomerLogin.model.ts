@@ -1,6 +1,6 @@
 export class User
 {
-    username:string = "";
-    password:string = "";
+    username:string = "saurabh";
+    password:string = "pass123";
     token:string = "";
 }

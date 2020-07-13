@@ -8,6 +8,8 @@ import { CustomerAddRoutes } from './CustomerAddRouting';
 import { CommonModule } from '@angular/common';
 import { JwtInterceptor } from '../Utilities/Utility.Interceptor';
 
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatTableModule } from '@angular/material/table'
 
 
 @NgModule({
@@ -20,9 +22,11 @@ import { JwtInterceptor } from '../Utilities/Utility.Interceptor';
     RouterModule.forChild(CustomerAddRoutes),
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatGridListModule,
+    MatTableModule,
   ],
   providers: [ { provide:HTTP_INTERCEPTORS, useClass:JwtInterceptor, multi:true}],
   bootstrap: [CustomerAddComponent]
 })
-export class HomeModule { }
+export class CustomerAddModule { }

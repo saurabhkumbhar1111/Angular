@@ -1,0 +1,8 @@
+mat-grid-tile {
+  background: lightgray;
+}
+
+mat-grid-tile-header{
+  display: flex;
+  align-items: center;
+}
